@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load static %}
+<div class="content-wrapper">
+            <div class="page-header">
+              <h3 class="page-title">
+                <span class="page-title-icon bg-gradient-primary text-white me-2">
+                  <i class="mdi mdi-home"></i>
+                </span> Product List
+              </h3>
+              <nav aria-label="breadcrumb">
+                <ul class="breadcrumb">
+                  <li class="breadcrumb-item active" aria-current="page">
+                    <span></span>Overview <i class="mdi mdi-alert-circle-outline icon-sm text-primary align-middle"></i>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+
+            <div class="row">
+             
+              <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Product List</h4>
+                    <!-- <p class="card-description"> Add class <code>.table-striped</code> -->
+                    </p>
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th>Moment Type</th>
+                          <th>Quantity</th>
+                          <th>Purchase Price</th>
+                          <th>Selling Price</th>
+                          <th>Reference</th>
+                          <th>Notes</th>
+                          <th>Product</th>
+
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for inventory in inventories %}
+                        <tr>
+                          <td class="py-1">
+                            {{ inventory.movement_type }}
+                          </td>
+                          <td> {{ inventory.quantity }} </td>
+                          <td>{{ inventory.purchase_price }}</td>
+                          <td> {{ inventory.selling_price }} </td>
+                          <td> {{ inventory.reference }} </td>
+                          <td> {{ inventory.notes }}</td>
+                          <td> {{ inventory.product }}</td>
+
+
+                        </tr>
+                        {% endfor %}
+
+
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            
+</div>
+
+
+       
+          
+        
+
+{% endblock %}

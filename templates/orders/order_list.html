@@ -24,7 +24,7 @@
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Order List</h4>
-                    </p>
+                    
                     <table class="table table-striped">
                       <thead>
                         <tr>
@@ -36,7 +36,7 @@
                           <th>Customer Name</th>
                           <th>Selling Price</th>
                           <th>Status</th>
-
+                          <th>Action</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -51,14 +51,44 @@
                           <td> {{ Order.customer_name }} </td>
                           <td> {{ Order.selling_price }}</td>
                           <td> {{ Order.status }}</td>
-
-
+                          <td>
+                            <i class="fa fa-eye me-2"></i>
+                            <i class="fa fa-pencil-square-o me-2"></i>
+                            <i class="fa fa-trash-o"></i>
+                          </td>
                         </tr>
                         {% endfor %}
-
-
                       </tbody>
                     </table>
+                    <div class="pagination mt-3">
+                      <nav aria-label="Page navigation">
+                          {% if Orders.has_previous %}
+                          <a href="?page=1">&laquo; First</a>
+                          <a href="?page={{ Orders.previous_page_number }}">Previous</a>
+                        {% endif %}
+
+                        <span>
+                          Page {{ Orders.number }} of {{ Orders.paginator.num_pages }}
+                        </span>
+                        <ul class="pagination justify-content-center mt-4">
+                          {% if Orders.has_next %}
+                            <li class="page-item">
+                              <a class="page-link" href="?page={{ Orders.next_page_number }}">
+                                Next
+                              </a>
+                            </li>
+
+                            <li class="page-item">
+                              <a class="page-link" href="?page={{ Orders.paginator.num_pages }}">
+                                Last &raquo;
+                              </a>
+                            </li>
+                          {% endif %}
+
+                        </ul>
+                      </nav>
+
+                    </div>
                   </div>
                 </div>
               </div>

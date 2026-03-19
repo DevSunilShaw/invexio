@@ -24,7 +24,6 @@
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Product List</h4>
-                    <!-- <p class="card-description"> Add class <code>.table-striped</code> -->
                     </p>
                     <table class="table table-striped">
                       <thead>
@@ -37,6 +36,8 @@
                           <th>Payment Method</th>
                           <th>Reference No</th>
                           <th>Store</th>
+                          <th>Action</th>
+
 
 
                         </tr>
@@ -54,6 +55,11 @@
                           <td> {{ expense.payment_method }}</td>
                           <td> {{ expense.reference_no }}</td>
                           <td> {{ expense.store }}</td>
+                          <td>
+                            <i class="fa fa-eye me-2"></i>
+                            <i class="fa fa-pencil-square-o me-2"></i>
+                            <i class="fa fa-trash-o"></i>
+                          </td>
 
 
 

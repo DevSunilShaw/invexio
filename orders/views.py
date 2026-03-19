@@ -1,9 +1,13 @@
 from django.shortcuts import render
 from .models import Order
-
+from django.contrib import messages
+from django.core.paginator import Paginator
 
 def order_list(request):
-	Orders = Order.objects.all()
+	order_list = Order.objects.all().order_by('-id')
+	paginator = Paginator(order_list, 5)
+	page_number = request.GET.get('page')
+	Orders = paginator.get_page(page_number)
 
 	context = {
 		'Orders': Orders
